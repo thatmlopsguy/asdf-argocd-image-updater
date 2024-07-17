@@ -2,16 +2,13 @@ name: ci
 
 on:
   push:
-    paths-ignore:
-      - "**.md"
+    branches:
+      - main
   pull_request:
-    paths-ignore:
-      - "**.md"
-  schedule:
-    - cron: "0 0 * * 5"
 
 jobs:
   plugin_test:
+    name: asdf plugin test
     strategy:
       fail-fast: false
       matrix:
@@ -23,8 +20,6 @@ jobs:
 
     steps:
       - name: Test plugin
-        uses: asdf-vm/actions/plugin-test@v1
+        uses: asdf-vm/actions/plugin-test@v3
         with:
           command: argocd-image-updater version
-        env:
-          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
