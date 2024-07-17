@@ -27,8 +27,8 @@ install() {
     aarch64) arch="arm64";;
     *) arch="amd64";;
   esac
-  local -r platform="$(uname | tr '[:upper:]' '[:lower:]')-${arch}"
-  local -r download_url="${DOWNLOAD_BASE_URL}/v${install_version}/${BINARY_NAME}_${platform}"
+  local -r platform="$(uname | tr '[:upper:]' '[:lower:]')_${arch}"
+  local -r download_url="${DOWNLOAD_BASE_URL}/v${install_version}/${BINARY_NAME}-${platform}"
   local -r download_path="${TMP_DOWNLOAD_DIR}/${BINARY_NAME}"
 
   [ "$install_type" != "version" ] && error_exit "Error: source installs are not supported"
