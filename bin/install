@@ -4,8 +4,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-readonly BINARY_NAME="argocd"
-readonly DOWNLOAD_BASE_URL="https://github.com/argoproj/argo-cd/releases/download"
+readonly BINARY_NAME="argocd-image-updater"
+readonly DOWNLOAD_BASE_URL="https://github.com/argoproj-labs/argocd-image-updater/releases/download"
 
 readonly TMP_DOWNLOAD_DIR="$(mktemp -d)"
 trap 'rm -rf "${TMP_DOWNLOAD_DIR?}"' EXIT
